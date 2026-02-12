@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
+import TradePanel from "@/components/TradePanel";
 
 interface ProjectDetails {
     title: string | null;
@@ -167,6 +168,8 @@ export default function ProjectPage() {
             <hr style={{ margin: "30px 0" }} />
 
             <p>{data.description}</p>
+
+            <TradePanel curveAddress={address as `0x${string}`} />
         </div>
     );
 }

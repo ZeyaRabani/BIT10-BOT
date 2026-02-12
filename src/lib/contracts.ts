@@ -1,0 +1,212 @@
+export const BONDING_CURVE_ABI = [
+    {
+        name: "buy",
+        type: "function",
+        stateMutability: "payable",
+        inputs: [
+            { name: "minTokensOut", type: "uint256" },
+            { name: "deadline", type: "uint256" },
+        ],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "sell",
+        type: "function",
+        stateMutability: "nonpayable",
+        inputs: [
+            { name: "tokenAmount", type: "uint256" },
+            { name: "minEthOut", type: "uint256" },
+            { name: "deadline", type: "uint256" },
+        ],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "simulateBuy",
+        type: "function",
+        stateMutability: "view",
+        inputs: [{ name: "ethAmount", type: "uint256" }],
+        outputs: [
+            { name: "ethToUse", type: "uint256" },
+            { name: "tokensOut", type: "uint256" },
+            { name: "refundAmount", type: "uint256" },
+            { name: "willGraduate", type: "bool" },
+        ],
+    },
+    {
+        name: "simulateSell",
+        type: "function",
+        stateMutability: "view",
+        inputs: [{ name: "tokenAmount", type: "uint256" }],
+        outputs: [{ name: "ethOut", type: "uint256" }],
+    },
+    {
+        name: "graduated",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "bool" }],
+    },
+    {
+        name: "currentPrice",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "ethBalance",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "tokenBalance",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "token",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "address" }],
+    },
+    {
+        name: "GRADUATION_ETH",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "MAX_SUPPLY",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "name",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "string" }],
+    },
+] as const;
+
+export const ERC20_ABI = [
+    {
+        name: "balanceOf",
+        type: "function",
+        stateMutability: "view",
+        inputs: [{ name: "account", type: "address" }],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "allowance",
+        type: "function",
+        stateMutability: "view",
+        inputs: [
+            { name: "owner", type: "address" },
+            { name: "spender", type: "address" },
+        ],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "approve",
+        type: "function",
+        stateMutability: "nonpayable",
+        inputs: [
+            { name: "spender", type: "address" },
+            { name: "amount", type: "uint256" },
+        ],
+        outputs: [{ type: "bool" }],
+    },
+    {
+        name: "transfer",
+        type: "function",
+        stateMutability: "nonpayable",
+        inputs: [
+            { name: "to", type: "address" },
+            { name: "amount", type: "uint256" },
+        ],
+        outputs: [{ type: "bool" }],
+    },
+    {
+        name: "transferFrom",
+        type: "function",
+        stateMutability: "nonpayable",
+        inputs: [
+            { name: "from", type: "address" },
+            { name: "to", type: "address" },
+            { name: "amount", type: "uint256" },
+        ],
+        outputs: [{ type: "bool" }],
+    },
+    {
+        name: "totalSupply",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint256" }],
+    },
+    {
+        name: "decimals",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint8" }],
+    },
+    {
+        name: "symbol",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "string" }],
+    },
+    {
+        name: "name",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "string" }],
+    },
+] as const;
+
+export const FACTORY_ABI = [
+    {
+        name: "tokenToCurve",
+        type: "function",
+        stateMutability: "view",
+        inputs: [{ name: "token", type: "address" }],
+        outputs: [{ type: "address" }],
+    },
+    {
+        name: "createToken",
+        type: "function",
+        stateMutability: "payable",
+        inputs: [
+            { name: "name", type: "string" },
+            { name: "symbol", type: "string" },
+            { name: "metadataURI", type: "string" },
+        ],
+        outputs: [{ type: "address" }],
+    },
+    {
+        name: "allTokens",
+        type: "function",
+        stateMutability: "view",
+        inputs: [{ name: "index", type: "uint256" }],
+        outputs: [{ type: "address" }],
+    },
+    {
+        name: "allTokensLength",
+        type: "function",
+        stateMutability: "view",
+        inputs: [],
+        outputs: [{ type: "uint256" }],
+    },
+] as const;
