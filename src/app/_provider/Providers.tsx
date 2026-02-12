@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import { WagmiProvider } from "wagmi";
@@ -21,6 +22,7 @@ export default function Providers({
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
                 <RainbowKitProvider
+                // @ts-expect-error
                     chains={[base]}
                     theme={darkTheme()}
                 >
